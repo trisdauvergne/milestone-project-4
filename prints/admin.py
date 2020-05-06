@@ -5,3 +5,4 @@ from .models import Designer, Print
 admin.site.register(Designer)
 
 admin.site.register(Print)
+

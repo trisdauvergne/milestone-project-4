@@ -12,8 +12,8 @@ class Designer(models.Model):
                                null=False,
                                blank=False)
     bio = models.CharField('A few words about the designer',
-                           max_length=254, 
-                           null=False, 
+                           max_length=254,
+                           null=False,
                            blank=False)
     email = models.EmailField(max_length=254,
                               null=False,

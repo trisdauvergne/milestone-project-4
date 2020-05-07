@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>Temp Test Page</h1>
+
+
+    <h2>Test form</h2>
+    <form method="POST" class=post-form>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+
+{% endblock %}
+

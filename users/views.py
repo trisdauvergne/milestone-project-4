@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def user_registration(request):
+    """ A view to show the registration page """
+    return render(request,
+                  'users/user_registration.html')

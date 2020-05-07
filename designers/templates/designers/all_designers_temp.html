@@ -4,14 +4,12 @@
 {% block content %}
     <h1>Temp Test Page</h1>
 
-
-    <h2>Test form</h2>
-    <form method="POST" class=post-form>
+    <h2>Test artist data form</h2>
+    <form method="POST" action="{% url 'all_designers_temp' %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Save</button>
     </form>
-
-
+    <hr>
 {% endblock %}
 

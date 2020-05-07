@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
 
-from prints.forms import TestForm
+from prints.forms import TestForm, TestPic
 
 from prints.models import Designer, Print
 
@@ -35,4 +34,19 @@ def all_designers_temp(request):
         form = TestForm()
     return render(request,
                   'designers/all_designers_temp.html',
+                  {'form': form})
+
+
+def all_designers_temp2(request):
+    """ Temporary view for testing image upload """
+    form = TestPic()
+    if request.method == 'POST':
+        form = TestPic(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('all_designers')
+    else:
+        form = TestPic()
+    return render(request,
+                  'designers/all_designers_temp2.html',
                   {'form': form})

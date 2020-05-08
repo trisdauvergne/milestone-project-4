@@ -2,15 +2,21 @@
 {% load static %}
 
 {% block content %}
-    <h1 class="red">Designer Detail</h1>
-    <p>{{ designer.full_name }}</p>
-    <ul>
-        {% for details in designers %}
-            <li>Name: <a href="">{{ details.full_name }}</a></li>
-            <li>About {{details.full_name}}:{{ details.bio }}</li>
-            <li>Contact: {{ details.email }}</li>
-            <hr>
-        {% endfor %}
-    </ul>
+<h3 class="red">CSS is linked</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h1>Designer Detail</h1>
+                <p>{{ designer.full_name }}</p>
+                <p>{{ designer.bio }}</p>
+                <p>{{ designer.email }}</p>
+            </div>
+            <div class="col-6">
+                {% for image in prints %}
+                    <img src="{{ image.image.url }}" class="temp-image">
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
 

@@ -3,6 +3,7 @@
 
 {% block content%}
 <h1>All works on this page</h1>
+<h3 class="red">CSS is linked</h3>
 <!-- <a href="{% url 'add_print' %}"><h2>Designers add print</h2></a> -->
 {% for image in prints %}
     <img src="{{ image.image.url }}" class="temp-image">

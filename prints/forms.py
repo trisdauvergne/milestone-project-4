@@ -24,3 +24,14 @@ class TestPic(forms.ModelForm):
                   'price',
                   'image')
 
+
+class UploadPic(forms.ModelForm):
+
+    class Meta:
+        model = Print
+        fields = ('designer',
+                  'title',
+                  'description',
+                  'size',
+                  'price',
+                  'image')

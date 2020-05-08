@@ -3,4 +3,10 @@
 
 {% block content%}
 <h1>Page for designers to upload their work</h1>
+
+<form method="POST" action="{% url 'add_print' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
 {% endblock %}

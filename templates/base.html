@@ -21,8 +21,9 @@
             <a href="{% url 'home' %}">About</a>
             <a href="{% url 'all_designers' %}">Designers</a>
             <a href="{% url 'all_prints' %}">Works</a>
-            <a href="{% url 'user_registration' %}">Register</a>
-            <a href="{% url 'user_login' %}">Login</a>
+            <a href="{% url 'account_signup' %}">Register</a>
+            <a href="{% url 'account_login' %}">Login</a>
+            <a href="{% url 'account_logout' %}">Sign out</a>
             <a href="{% url 'view_bag' %}">Bag</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
@@ -33,14 +34,6 @@
     {% block page_header %}
     {% endblock %}
 
-    <div>
-        {% if user.is_authenticated %}
-            <li>User: {{ user.get_username }}</li>
-            <li><a href="{% url 'logout' %}?next={{ request.path }}">Logout</a></li>   
-        {% else %}
-            <li><a href="{% url 'login' %}?next={{ request.path }}">Login</a></li>   
-        {% endif %} 
-    </div>
     {% block content %}
     {% endblock %}
 

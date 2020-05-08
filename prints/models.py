@@ -32,7 +32,9 @@ class Print(models.Model):
                                  null=True,
                                  blank=True,
                                  on_delete=models.CASCADE)
-    title = models.CharField(max_length=254, null=False, blank=False)
+    title = models.CharField(max_length=254,
+                             null=False,
+                             blank=False)
     description = models.CharField('A few words about this work',
                                    max_length=254,
                                    null=False,

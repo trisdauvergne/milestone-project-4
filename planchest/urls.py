@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('accounts/', include('allauth.urls')), -------------------- removed while experimenting with Django instead of allauth
+    path('accounts/', include('allauth.urls')),
     path('', include('home.urls')),
     path('designers/', include('designers.urls')),
     path('users/', include('users.urls')),
@@ -34,6 +34,6 @@ if settings.DEBUG:
 
 # Add Django site authentication urls (for login, logout, password management)
 
-urlpatterns += [
-    path('accounts/', include('django.contrib.auth.urls')),
-]
+# urlpatterns += [
+#     path('accounts/', include('django.contrib.auth.urls')),
+# ]

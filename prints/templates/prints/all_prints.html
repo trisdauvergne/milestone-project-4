@@ -3,9 +3,8 @@
 
 {% block content%}
 <h1>All works on this page</h1>
-<a href="{% url 'add_print' %}"><h2>Designers add print</h2></a>
-    {% for image in prints %}
-        <li><img src="{{ image.image.url }}" class="temp-image"></li>
-        <hr>
-    {% endfor %}
+<!-- <a href="{% url 'add_print' %}"><h2>Designers add print</h2></a> -->
+{% for image in prints %}
+    <img src="{{ image.image.url }}" class="temp-image">
+{% endfor %}
 {% endblock %}

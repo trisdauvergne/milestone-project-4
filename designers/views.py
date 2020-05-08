@@ -1,15 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 
-from prints.forms import TestForm, TestPic
+from prints.models import Print
 
-from prints.models import Designer, Print
-
-# Create your views here.
+from .models import Designers
 
 
 def all_designers(request):
     """ A view to return the all designers page """
-    designers = Designer.objects.all()
+    designers = Designers.objects.all()
     prints = Print.objects.all()
 
     context = {
@@ -22,31 +20,14 @@ def all_designers(request):
                   context)
 
 
-def all_designers_temp(request):
-    """ Temporary view for testing forms """
-    form = TestForm()
-    if request.method == 'POST':
-        form = TestForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('all_designers')
-    else:
-        form = TestForm()
-    return render(request,
-                  'designers/all_designers_temp.html',
-                  {'form': form})
+def designer_detail(request):
+    """ A view to return detail about a specific designer """
+    designer = Designers.objects.get(pk=4)
 
+    context = {
+        'designer': designer,
+    }
 
-def all_designers_temp2(request):
-    """ Temporary view for testing image upload """
-    form = TestPic()
-    if request.method == 'POST':
-        form = TestPic(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('all_designers')
-    else:
-        form = TestPic()
     return render(request,
-                  'designers/all_designers_temp2.html',
-                  {'form': form})
+                  'designers/designer_detail.html',
+                  context)

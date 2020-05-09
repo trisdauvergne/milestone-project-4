@@ -4,4 +4,5 @@ from .import views
 urlpatterns = [
     path('', views.all_prints, name='all_prints'),
     path('add-print/', views.add_print, name='add_print'),
+    path('single-print', views.single_print, name='single_print')
 ]

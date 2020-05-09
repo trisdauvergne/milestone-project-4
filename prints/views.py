@@ -33,3 +33,16 @@ def add_print(request):
     return render(request,
                   'prints/add_print.html',
                   {'form': form})
+
+
+def single_print(request):
+    """ A view to see a single print after it has been clicked on """
+    single_print = Print.objects.all()
+
+    context = {
+        'single_print': single_print,
+    }
+
+    return render(request,
+                  'prints/single_print.html',
+                  context)

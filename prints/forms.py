@@ -7,9 +7,9 @@ class UploadPic(forms.ModelForm):
 
     class Meta:
         model = Print
-        fields = ('designer',
+        fields = ['designer',
                   'title',
                   'description',
                   'size',
                   'price',
-                  'image')
+                  'image']

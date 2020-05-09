@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
 from .forms import UploadPic
 
-from.models import Print
+from .models import Print
 
 
 def all_prints(request):
@@ -16,6 +16,19 @@ def all_prints(request):
 
     return render(request,
                   'prints/all_prints.html',
+                  context)
+
+
+def single_print(request, print_id):
+    """ A view to see a single print after its small version is clicked """
+    the_print = get_object_or_404(Print, id=print_id)
+
+    context = {
+        'the_print': the_print,
+    }
+
+    return render(request,
+                  'prints/single_print.html',
                   context)
 
 
@@ -35,14 +48,4 @@ def add_print(request):
                   {'form': form})
 
 
-def single_print(request):
-    """ A view to see a single print after it has been clicked on """
-    single_print = Print.objects.all()
 
-    context = {
-        'single_print': single_print,
-    }
-
-    return render(request,
-                  'prints/single_print.html',
-                  context)

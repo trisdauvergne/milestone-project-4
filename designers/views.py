@@ -8,11 +8,11 @@ from .models import Designers
 def all_designers(request):
     """ A view to return the all designers page """
     designer = Designers.objects.all()
-    designers = designer.order_by('full_name')
+    ordered_designers = designer.order_by('full_name')
     prints = Print.objects.all()
 
     context = {
-        'designers': designers,
+        'designers': ordered_designers,
         'prints': prints,
     }
 
@@ -23,12 +23,12 @@ def all_designers(request):
 
 def designer_detail(request, designer_id):
     """ A view to return detail about a specific designer """
-    designer = Designers.objects.get(id=designer_id)
-    prints = Print.objects.filter(designer=designer)
+    the_designer = Designers.objects.get(id=designer_id)
+    prints_by_designer = Print.objects.filter(designer=the_designer)
 
     context = {
-        'designer': designer,
-        'prints': prints,
+        'designer': the_designer,
+        'prints': prints_by_designer,
     }
 
     return render(request,

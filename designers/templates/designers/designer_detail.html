@@ -13,7 +13,9 @@
             </div>
             <div class="col-6">
                 {% for image in prints %}
-                    <img src="{{ image.image.url }}" class="temp-image">
+                    <a href=""><img src="{{ image.image.url }}" class="temp-image"></a>
+                    <p>{{ image.title }}</p>
+                    <p>{{ image.size }}</p>
                 {% endfor %}
             </div>
         </div>

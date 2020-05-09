@@ -5,6 +5,8 @@ from .forms import UploadPic
 
 from .models import Print
 
+from designers.models import Designers
+
 
 def all_prints(request):
     """ A view to show all the prints on Planchest """
@@ -29,6 +31,23 @@ def single_print(request, print_id):
 
     return render(request,
                   'prints/single_print.html',
+                  context)
+
+
+def edit_print(request, print_id):
+    """ A view to edit a print """
+    the_print = get_object_or_404(Print, id=print_id)
+    if request.method == 'POST':
+        form = UploadPic(request.POST, request.FILES, instance=the_print)
+        if form.is_valid():
+            form.save()
+            return redirect('all_prints')
+    form = UploadPic(instance=the_print)
+    context = {
+        'form': form
+    }
+    return render(request,
+                  'prints/edit_print.html',
                   context)
 
 

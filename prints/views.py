@@ -32,6 +32,14 @@ def single_print(request, print_id):
                   context)
 
 
+def delete_print(request, print_id):
+    """ A view to delete a print """
+    the_print = get_object_or_404(Print, id=print_id)
+    the_print.delete()
+
+    return redirect('all_prints')
+
+
 @login_required
 def add_print(request):
     """ A view where designers can add their prints to the site """

@@ -8,6 +8,6 @@
     <img src="{{ the_print.image.url }}" class="temp-image">
     {% if user.is_authenticated %}
     <a href="">Update</a>
-    <a href="">Delete</a>
+    <a href="{% url 'delete_print' the_print.id %}">Delete</a>
     {% endif %}
 {% endblock %}

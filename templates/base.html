@@ -22,7 +22,8 @@
             <a href="{% url 'all_designers' %}">Designers</a>
             <a href="{% url 'all_prints' %}">Works</a>
             {% if user.is_authenticated %}
-                <a href="{% url 'designer_profile' %}">Your profile</a>
+                <a href="{% url 'create_designer_profile' user.id %}">Create a profile</a>
+                <a href="{% url 'designer_profile' user.id %}">Your profile</a>
                 <a href="{% url 'add_print' %}">Add work</a>
                 <a href="{% url 'account_logout' %}">Sign out</a>
             {% else %}

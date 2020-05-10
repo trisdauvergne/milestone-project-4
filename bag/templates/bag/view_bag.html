@@ -3,4 +3,13 @@
 
 {% block content%}
 <h1>Users can view their bag</h1>
+<div>
+    {% if bag_items %}
+    <div class="table-responsive">
+    </div>
+    {% else %}
+    <p>Your bag is empty</p>
+    <a href="{% url 'all_prints' %}">View works</a>
+    {% endif %}
+</div>
 {% endblock %}

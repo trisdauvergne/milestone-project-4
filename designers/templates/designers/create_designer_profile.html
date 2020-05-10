@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>Create a designer profile</h1>
+    <p>Saved email: {{ user.email }}</p>
+    <!-- <p>First name: {{ user.first_name }}</p>
+    <p>Last name: {{ user.last_name }}</p> -->
+    <form method="POST" action="{% url 'create_designer_profile' user.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

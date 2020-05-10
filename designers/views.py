@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 from prints.models import Print
 
@@ -34,3 +35,9 @@ def designer_detail(request, designer_id):
     return render(request,
                   'designers/designer_detail.html',
                   context)
+
+
+@login_required
+def designer_profile(request):
+    """ A view for users to create a designer profile to sell work """
+    form = Designers

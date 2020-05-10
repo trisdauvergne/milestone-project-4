@@ -3,11 +3,9 @@
 
 {% block content %}
     <h1>Designers Page (arranged alphabeitcally)</h1>
-    <h3 class="red">CSS is linked</h3>
     <ul>
         {% for designer in designers %}
-            <li>Name: <a href="{% url 'designer_detail' designer.id %}">{{ designer.full_name }}</a></li>
-            <li>About {{designer.full_name}}:{{ designer.bio }}</li>
+            <li>Name: <a href="{% url 'designer_detail' designer.id %}">{{ designer.first_name }} {{ designer.last_name }}</a></li>
             <li>Contact: {{ designer.email }}</li>
             <hr>
         {% endfor %}

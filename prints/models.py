@@ -1,11 +1,12 @@
 from django.db import models
 
-from designers.models import Designers
+# from designers.models import Designers
+from django.contrib.auth.models import User
 
 
 class Print(models.Model):
 
-    designer = models.ForeignKey(Designers,
+    designer = models.ForeignKey(User,
                                  null=True,
                                  blank=True,
                                  on_delete=models.CASCADE)

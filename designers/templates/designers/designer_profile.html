@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>Designer's profile page</h1>
+    {% for user_info in user %}
+        <li>{{ user_info.username }}</li>
+        <li>{{ user_info.first_name }} {{ user_info.last_name }}</li>
+        <li>{{ user_info.email }}</li>
+        <br>
+    {% endfor %}
+{% endblock %}

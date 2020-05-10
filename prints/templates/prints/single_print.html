@@ -3,10 +3,11 @@
 
 {% block content %}
     <h1>Single print page</h1>
-    <p style="color:red;">Designer's name to be added here</p>
+    <img src="{{ the_print.image.url }}" class="temp-image">
+    <br>
+    <p>{{ the_print.designer.first_name }} {{ the_print.designer.last_name }}</p>
     <p>{{ the_print.title }}</p>
     <p>{{ the_print.size }}</p>
-    <img src="{{ the_print.image.url }}" class="temp-image">
     <a href="">Buy</a>
     {% if user.is_authenticated %}
     <a href="{% url 'edit_print' the_print.id %}">Edit info</a>

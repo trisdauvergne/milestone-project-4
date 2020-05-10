@@ -24,5 +24,6 @@ class DesignerProfileForm(forms.ModelForm):
         fields = ['user',
                   'first_name',
                   'last_name',
+                  'bio',
                   'country',
-                  'bio']
+                  'email']

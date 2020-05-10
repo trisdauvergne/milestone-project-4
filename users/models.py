@@ -14,12 +14,15 @@ class DesignerProfile(models.Model):
     last_name = models.CharField(max_length=30,
                                  null=False,
                                  blank=False)
-    country = CountryField(blank_label='Country',
-                           null=False,
-                           blank=False)
     bio = models.CharField(max_length=240,
                            null=False,
                            blank=False)
+    country = CountryField(blank_label='Country',
+                           null=False,
+                           blank=False)
+    email = models.EmailField(max_length=254,
+                              null=False,
+                              blank=False)
 
     class Meta:
         verbose_name = 'Designer Profile'

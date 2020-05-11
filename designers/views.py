@@ -28,11 +28,11 @@ def designer_detail(request, designer_id):
     """ A view to return detail about a specific designer """
     the_designer = DesignerProfile.objects.get(id=designer_id)
     designer_profile_info = DesignerProfile.objects.get(id=designer_id)
-    # prints_by_designer = Print.objects.filter(the_designer=)
+    prints_by_designer = Print.objects.all()
 
     context = {
         'designer': the_designer,
-        # 'prints': prints_by_designer,
+        'prints': prints_by_designer,
         'info': designer_profile_info,
     }
 
